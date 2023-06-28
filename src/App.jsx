@@ -12,7 +12,7 @@ function App() {
 
   return(
     <div>
-      {products.map((product, index) => (
+      {products?.map((product, index) => (
         <div key={index}>
           <p>{product.id}</p>
           <p>{product.title}</p>
