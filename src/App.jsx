@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { BsFillCartPlusFill } from 'react-icons/bs';
+
 
 function App() {
   const [products, setProducts] = useState(null);
@@ -11,15 +13,26 @@ function App() {
   }, []);
 
   return(
-    <div>
+    <main className="products">
+      <ul>
       {products?.map((product, index) => (
-        <div key={index}>
-          <p>{product.id}</p>
-          <p>{product.title}</p>
-          <img src={product.thumbnail} alt="Girl in a jacket"/>
-        </div>
+        <li key={product.id}>
+          <img
+          src={product.thumbnail}
+          alt={product.title}
+          />
+          <div>
+            <strong>{product.title}</strong>
+          </div>
+          <div>
+            <button>
+              <BsFillCartPlusFill />
+            </button>
+          </div>
+        </li>
       ))}
-    </div>
+      </ul>
+    </main>
   ) 
 
 }
